@@ -15,10 +15,12 @@ export async function getPokemonDetails(pokemonData) {
         pokemonData.map(async (pokemon) => {
             const details = await getPokemonData(pokemon.url)
             const front_default = details.sprites.front_default
+            const animated_front_default = details.sprites.versions['generation-v']['black-white']['animated']['front_default']
             return {
                 name: pokemon.name,
                 url: pokemon.url,
                 front_default: front_default,
+                animated_front_default: animated_front_default,
                 id: details.id,
             };
         })

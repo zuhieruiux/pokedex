@@ -3,3 +3,8 @@ export const getPokeID = (id) => {
     if (id >= 100) return `${id}`
     return `00${id}`
 }
+
+export function transformPokemonName(name) {
+    // Replace -f with ♀️ (female symbol) and -m with ♂️ (male symbol)
+    return name.replace('-f', '♀️').replace('-m', '♂️');
+}
