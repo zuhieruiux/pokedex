@@ -4,7 +4,7 @@ import { getPokeID, transformPokemonName } from '@/functions/global';
 import { getPokemonData, getPokemonDetails } from '@/functions/api/pokemon';
 
 export default async function PokeList() {
-  const pokemonData = await getPokemonData('https://pokeapi.co/api/v2/pokemon?limit=809&offset=0');
+  const pokemonData = await getPokemonData('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0');
   const pokemonWithDetails = await getPokemonDetails(pokemonData.results);
   return (
     <div className="pokemon-wrapper grid grid-cols-12 gap-4">

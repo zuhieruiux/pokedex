@@ -6,5 +6,5 @@ export const getPokeID = (id) => {
 
 export function transformPokemonName(name) {
     // Replace -f with ♀️ (female symbol) and -m with ♂️ (male symbol)
-    return name.replace('-f', '♀️').replace('-m', '♂️');
+    return name.replace(/-f\b/g, '♀️').replace(/-m\b/g, '♂️').replace(/-(?=\S)/g, ' ')
 }
