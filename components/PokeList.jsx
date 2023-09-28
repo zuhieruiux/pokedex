@@ -4,14 +4,14 @@ import { getPokeID, transformPokemonName } from '@/functions/global';
 import { getPokemonData, getPokemonDetails } from '@/functions/api/pokemon';
 
 export default async function PokeList() {
-  const pokemonData = await getPokemonData('https://pokeapi.co/api/v2/pokemon?limit=809&offset=0');
+  const pokemonData = await getPokemonData('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0');
   const pokemonWithDetails = await getPokemonDetails(pokemonData.results);
   return (
-    <div className="pokemon-wrapper grid grid-cols-12 gap-4">
+    <div className="pokemon-wrapper flex flex-wrap justify-center">
       {pokemonWithDetails.map((pokemon) => {
         const pokemonName = transformPokemonName(pokemon.name);
         return (
-          <div className="pokemon text-center" key={pokemon.id}>
+          <div className="pokemon w-1/5 lg:w-2/4 sm:w-full text-center" key={pokemon.id}>
             <Link href={`/pokemon/${pokemon.name}`}>
               <p className="id-number">#{getPokeID(pokemon.id)}</p>
               {pokemon.front_default && (
